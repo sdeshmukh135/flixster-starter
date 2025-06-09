@@ -1,0 +1,9 @@
+.movie-img {
+    max-height:200px;
+}
+
+.movie-card {
+    border:1px solid black;
+    max-width:280px;
+    margin:30px;
+}
