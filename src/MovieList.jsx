@@ -5,7 +5,6 @@ import './MovieList.css'
 
 const MovieList = (props) => {
     const movieData = parseMovieData(props.data);
-    console.log(movieData);
     return (
         <div className="movies-list">
             {
