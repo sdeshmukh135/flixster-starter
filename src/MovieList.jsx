@@ -11,7 +11,7 @@ const MovieList = (props) => {
             {
             movieData.map(object => {
                 return (
-                    <MovieCard title={object.title} rating={object.rating} />
+                    <MovieCard title={object.title} rating={object.rating} poster={object.poster}/>
                 )
              })
             } 

@@ -17,4 +17,10 @@ const parseMovieData = (data) => {
     return movieData;
 }
 
+// search bar functionality
+const handleSearch = (event) => {
+    event.preventDefault();
+    
+}
+
 export {parseMovieData}
