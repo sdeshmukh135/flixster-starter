@@ -11,11 +11,9 @@
 }
 
 .modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  position: relative;
-  z-index: 1001;
-  width: 80%;
-  max-width: 500px;
+  background-color: #fefefe;
+   margin: 15% auto; /* 15% from the top and centered */
+   padding: 20px;
+   border: 1px solid #888;
+   width: 80%;
 }

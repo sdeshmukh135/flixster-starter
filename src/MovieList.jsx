@@ -7,13 +7,17 @@ import Modal from "./Modal.jsx"
 const MovieList = (props) => {
     const movieData = parseMovieData(props.data);
 
+    
+
     return (
         <div className="movies-list">
+            {props.modalData && <Modal data={props.modalData} setModalData={props.setModalData} modalData={props.modalData}/>}
             {
             movieData.map(object => {
                 return (
                     <>
-                        <MovieCard data={movieData} title={object.title} rating={object.rating} poster={object.poster} setBooleans={props.setBooleans} booleans={props.booleans}/>
+                        <MovieCard data={object} title={object.title} rating={object.rating}
+                        poster={object.poster} modalData={props.modalData} setModalData={props.setModalData}/>
                     </>
                     
                     

@@ -8,6 +8,7 @@ const App = () => {
   const [pages, setPages] = useState(1);
   const [movieData, setMovieData] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [modalData, setModalData] = useState(null);
   const [booleans, setBooleans] = useState({ // will add more for modal and extra stuff
     isLoading:false,
     isModal:false
@@ -25,22 +26,22 @@ const App = () => {
       setMovieData(movieData);
       setBooleans(prev => ({...prev, isLoading:false}));
     } else {
-
       setMovieData(data);
     }
-
   };
 
   useEffect(() => {
+    //console.log(booleans.isModal);
+    if (modalData == null) { // if false
+      fetchData();
 
-    fetchData();
-
-    if (searchQuery != '') { // searchQuery has been changed
-      handleSearchQuery();
+      if (searchQuery != '') { // searchQuery has been changed
+        handleSearchQuery();
+      }
     }
     
-    
-  }, [pages, searchQuery]); // dependency array
+    //console.log(booleans.isModal);
+  }, [pages, searchQuery, modalData]); // dependency array
 
   const handlePageChange = () => {
     setBooleans(prev => ({...prev, isLoading:true}));
@@ -58,8 +59,9 @@ const App = () => {
   return (
     <div className="App">
       {movieData && <Header send={setSearchQuery}/>}
-      {movieData && <MovieList data={movieData} setBooleans={setBooleans} booleans={booleans} />}
+      {movieData && <MovieList data={movieData} setBooleans={setBooleans} booleans={booleans} modalData={modalData} setModalData={setModalData}/>}
       <button type="button" onClick={handlePageChange} id="loadMore">Load More</button>
+      
       <Footer />
     </div>
   )
