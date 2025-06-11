@@ -3,7 +3,7 @@ import SearchForm from './SearchForm.jsx'
 
 
 
-const Header = ({send, fetchData}) => {
+const Header = ({send}) => {
 
     const handleSearchChange = (input) => {
         send(input);
@@ -14,7 +14,7 @@ const Header = ({send, fetchData}) => {
         <div className="body">
             <h1>Flixster</h1>
             <div className ="toggleBar">
-                 <SearchForm onSearchQuery={handleSearchChange} fetchData={fetchData}/>
+                 <SearchForm onSearchQuery={handleSearchChange} />
             </div>
         </div>
         

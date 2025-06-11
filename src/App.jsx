@@ -2,46 +2,48 @@ import './App.css'
 import Header from './Header.jsx'
 import MovieList from './MovieList.jsx'
 import Footer from './Footer.jsx'
-import MovieData from "./data/data.js"
 import { useState ,useEffect} from 'react'
 
 const App = () => {
   const [pages, setPages] = useState(1);
   const [movieData, setMovieData] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [booleans, setBooleans] = useState({ // will add more for modal and extra stuff
+    isLoading:false,
+    isModal:false
+  });
   
 
   const fetchData = async () => {
-    //console.log("----");
     const apiKey = import.meta.env.VITE_APP_API_KEY
-    const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${pages}`)
-    //console.log(response);
+    const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${pages}`);
     const data = await response.json()
-    //console.log(data);
-    if (movieData != null) {
-      //console.log(data);
+
+    if (movieData != null && booleans.isLoading) {
+      console.log(data);
       movieData.results = [...movieData.results, ...data.results];
       setMovieData(movieData);
+      setBooleans(prev => ({...prev, isLoading:false}));
     } else {
-      
+
       setMovieData(data);
     }
 
   };
 
   useEffect(() => {
-    
+
     fetchData();
 
     if (searchQuery != '') { // searchQuery has been changed
-      console.log(searchQuery);
       handleSearchQuery();
     }
     
     
-  }, [pages, searchQuery]);
+  }, [pages, searchQuery]); // dependency array
 
   const handlePageChange = () => {
+    setBooleans(prev => ({...prev, isLoading:true}));
     setPages(pages + 1);
   }
 
@@ -55,8 +57,8 @@ const App = () => {
 
   return (
     <div className="App">
-      {movieData && <Header send={setSearchQuery} fetchData={fetchData}/>}
-      {movieData && <MovieList data={movieData} />}
+      {movieData && <Header send={setSearchQuery}/>}
+      {movieData && <MovieList data={movieData} setBooleans={setBooleans} booleans={booleans} />}
       <button type="button" onClick={handlePageChange} id="loadMore">Load More</button>
       <Footer />
     </div>
