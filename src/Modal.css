@@ -11,9 +11,37 @@
 }
 
 .modal-content {
-  background-color: #fefefe;
-   margin: 15% auto; /* 15% from the top and centered */
+  background-color:#302214;
+   margin: 5% auto; /* 15% from the top and centered */
    padding: 20px;
-   border: 1px solid #888;
-   width: 80%;
+   border: 1px solid #b49855;
+   border-radius:5%;
+   max-width: 80%;
+   color:#b49855;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   max-height:auto;
+}
+
+.modal-img {
+    max-height:30%;
+    max-width:29%;
+    border:1px solid #b49855;
+}
+
+.details {
+    display:flex;
+    margin:10px;
+    
+}
+
+.extraDetails {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    margin-left:auto;
+    padding:15px;
+}
+
+.genres {
+    display:flex;
 }

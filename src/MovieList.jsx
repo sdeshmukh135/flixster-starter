@@ -7,8 +7,6 @@ import Modal from "./Modal.jsx"
 const MovieList = (props) => {
     const movieData = parseMovieData(props.data);
 
-    
-
     return (
         <div className="movies-list">
             {props.modalData && <Modal data={props.modalData} setModalData={props.setModalData} modalData={props.modalData}/>}

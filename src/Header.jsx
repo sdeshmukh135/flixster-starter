@@ -15,6 +15,7 @@ const Header = ({send}) => {
             <h1>Flixster</h1>
             <div className ="toggleBar">
                  <SearchForm onSearchQuery={handleSearchChange} />
+                 
             </div>
         </div>
         

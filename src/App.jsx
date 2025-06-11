@@ -11,7 +11,6 @@ const App = () => {
   const [modalData, setModalData] = useState(null);
   const [booleans, setBooleans] = useState({ // will add more for modal and extra stuff
     isLoading:false,
-    isModal:false
   });
   
 
@@ -21,7 +20,7 @@ const App = () => {
     const data = await response.json()
 
     if (movieData != null && booleans.isLoading) {
-      console.log(data);
+      //console.log(data);
       movieData.results = [...movieData.results, ...data.results];
       setMovieData(movieData);
       setBooleans(prev => ({...prev, isLoading:false}));
