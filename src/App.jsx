@@ -7,41 +7,55 @@ import { useState ,useEffect} from 'react'
 
 const App = () => {
   const [pages, setPages] = useState(1);
-  let [movieData, setMovieData] = useState(null);
+  const [movieData, setMovieData] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  
 
   const fetchData = async () => {
+    //console.log("----");
     const apiKey = import.meta.env.VITE_APP_API_KEY
     const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${pages}`)
-    console.log(response);
+    //console.log(response);
     const data = await response.json()
-    console.log(data);
+    //console.log(data);
     if (movieData != null) {
-      // movieData = [...movieData.results,...data.results];
-      // setMovieData(movieData);
+      //console.log(data);
+      movieData.results = [...movieData.results, ...data.results];
+      setMovieData(movieData);
     } else {
+      
       setMovieData(data);
     }
-    
 
   };
 
-  //fetchData();
-
   useEffect(() => {
-    if (pages > 0) {
-      fetchData();
+    
+    fetchData();
+
+    if (searchQuery != '') { // searchQuery has been changed
+      console.log(searchQuery);
+      handleSearchQuery();
     }
     
-  }, [pages]);
+    
+  }, [pages, searchQuery]);
 
   const handlePageChange = () => {
-
     setPages(pages + 1);
+  }
+
+  const handleSearchQuery = async() => { // set searchQuery earlier
+      // searchQuery now has our search
+      const apiKey = import.meta.env.VITE_APP_API_KEY
+      const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchQuery}`)
+      const data = await response.json()
+      setMovieData(data);
   }
 
   return (
     <div className="App">
-      <Header />
+      {movieData && <Header send={setSearchQuery} fetchData={fetchData}/>}
       {movieData && <MovieList data={movieData} />}
       <button type="button" onClick={handlePageChange} id="loadMore">Load More</button>
       <Footer />

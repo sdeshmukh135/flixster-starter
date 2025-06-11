@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color:#b49855;
 }
 
 .App-header {
@@ -25,4 +26,13 @@
   .search-bar form {
     flex-direction: column;
   }
+}
+
+#loadMore {
+  background-color:#302214;
+  margin:10px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: 1px solid #e7d491;
+  color:#b49855;
+  height:30px
 }

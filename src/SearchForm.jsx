@@ -1,23 +1,27 @@
 import './Header.css'
-import { useState } from 'react'
-import MovieData from "./data/data.js"
 
-const SearchForm = () => {
-    const [searchQuery, setSearchQuery] = useState(MovieData);
+
+const SearchForm = ({onSearchQuery, fetchData}) => {
 
     const handleSearchChange = (event) => {
-        const query = event.target.value;
-        const filteredData = MovieData.results.filter(movie)
         
-
-        setSearchQuery(event.target.value);
+        event.preventDefault();
+        //console.log(event.target.elements['search-movie'].value);
+        onSearchQuery(event.target.elements['search-movie'].value);
+        event.target.reset();
     };
+
+    const handleFetchData = async () => {
+        
+        await fetchData();
+    }
 
 
     return (
-        <form id="SearchBar">
-            <input type ="text" name ="search-movie" value={searchQuery} onChange={handleSearchChange} placeholder="Enter Movie Name" required/>
+        <form id="SearchBar" onSubmit={handleSearchChange}>
+            <input type ="text" name ="search-movie" placeholder="Enter Movie Name" required/>
             <button type="submit" id="submitMovie">Search</button>
+            <button type="button" id="submitMovie" onClick={handleFetchData}>Clear</button>
         </form>
     )
 }
