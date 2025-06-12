@@ -10,8 +10,10 @@ const App = () => {
   const [movieData, setMovieData] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [modalData, setModalData] = useState(null);
-  const [sortOption, setSortOption] = useState('');
-  const [booleans, setBooleans] = useState({ // will add more for modal and extra stuff
+  const [sidebarOption, setSidebarOption] = useState('');
+  const [favoriteMovies, setFavoriteMovies] = useState([]); // array of favorite movie titles
+  const [watchedMovies, setWatchedMovies] = useState([]); // array of watched movie titles
+  const [booleans, setBooleans] = useState({ // added nothing else, change name
     isLoading:false,
   });
   
@@ -66,6 +68,14 @@ const App = () => {
     fetchData();
   }, [pages]);
 
+  // for watched movies
+  useEffect(() => {
+    if (sidebarOption != '') {
+      handleWatched();
+    }
+  }, [sidebarOption]);
+
+
   // to control closing the modal
   useEffect(() => {
     if (modalData == null) {
@@ -82,11 +92,11 @@ const App = () => {
   }, [searchQuery]);
 
   // sort query
-  useEffect(() => {
-    if (sortOption !== '') {
-      handleSortQuery();
-    }
-  }, [sortOption]);
+  // useEffect(() => {
+  //   if (sortOption !== '') {
+  //     handleSortQuery();
+  //   }
+  // }, [sortOption]);
 
   const handlePageChange = () => {
     setBooleans(prev => ({...prev, isLoading:true}));
@@ -102,34 +112,65 @@ const App = () => {
       setMovieData(data);
   }
 
-  const handleSortQuery = async() => { // changing movieData according to sorting option
-    const currentMovieData = [...movieData.results]
-    if (sortOption === "title") {
-      // sort using the title
-      console.log("sorting by title")
-      currentMovieData.sort((a,b) => a['title'].localeCompare(b['title']))
-    } else if (sortOption === "date") {
-      // sort using date
-      currentMovieData.sort((a,b) => new Date(a['release_date']) - new Date(b['release_date']))
-    } else {
-      // sort using rating
-      currentMovieData.sort((a,b) => (a['vote_average']) - (b['vote_average']))
-    }
+  // const handleSortQuery = async() => { // changing movieData according to sorting option
+  //   const currentMovieData = [...movieData.results]
+  //   if (sortOption === "title") {
+  //     // sort using the title
+  //     console.log("sorting by title")
+  //     currentMovieData.sort((a,b) => a['title'].localeCompare(b['title']))
+  //   } else if (sortOption === "date") {
+  //     // sort using date
+  //     currentMovieData.sort((a,b) => new Date(a['release_date']) - new Date(b['release_date']))
+  //   } else {
+  //     // sort using rating
+  //     currentMovieData.sort((a,b) => (a['vote_average']) - (b['vote_average']))
+  //   }
 
-    const newData = {
-        ...movieData,
-        results:currentMovieData
-      }
-    console.log(currentMovieData);
-    console.log(movieData);
-    setMovieData(newData);
-  }
+  //   const newData = {
+  //       ...movieData,
+  //       results:currentMovieData
+  //     }
+  //   console.log(currentMovieData);
+  //   console.log(movieData);
+  //   setMovieData(newData);
+  // }
+
+
+  // const handleWatched = async() => {
+  //   const currentMovieData = [...movieData.results]
+  //   const newResults = []
+
+  //   if (sidebarOption === "watched") {
+  //     // filter according to titles that have been "watched"
+
+  //     for (const movie of currentMovieData) {
+  //       if (watchedMovies.length === 0) {
+  //         break;
+  //       }
+  //       console.log(watchedMovies);
+  //       if (watchedMovies.includes(movie.id) && !newResults.includes(movie.id)) { // to prevent repeats
+  //         newResults.push(movie);
+  //       }
+  //     }
+  //   } else if (sidebarOption === "home") {
+  //     fetchData();
+  //     return;
+  //   }
+    
+  //   const newData = {
+  //     ...movieData,
+  //     results:newResults
+  //   }
+
+  //   setMovieData(newData);
+
+  // }
 
   return (
     <div className="App">
-      {movieData && <Header send={setSearchQuery} setSortOption={setSortOption}/>}
+      {movieData && <Header fetchData={fetchData} movieData={movieData} send={setSearchQuery} watchedMovies={watchedMovies} setMovieData={setMovieData}/>}
       <Banner />
-      {movieData && <MovieList data={movieData} setBooleans={setBooleans} booleans={booleans} modalData={modalData} setModalData={setModalData}/>}
+      {movieData && <MovieList data={movieData} setWatchedMovies={setWatchedMovies} watchedMovies={watchedMovies} modalData={modalData} setModalData={setModalData}/>}
       <button type="button" onClick={handlePageChange} id="loadMore">Load More</button>
       <Footer />
     </div>

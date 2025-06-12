@@ -15,7 +15,7 @@ const MovieList = (props) => {
                 return (
                     <>
                         <MovieCard data={object} title={object.title} rating={object.rating}
-                        poster={object.poster} modalData={props.modalData} setModalData={props.setModalData}/>
+                        poster={object.poster} modalData={props.modalData} setModalData={props.setModalData} setWatchedMovies={props.setWatchedMovies} watchedMovies={props.watchedMovies}/>
                     </>
                     
                     
