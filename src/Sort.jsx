@@ -4,17 +4,12 @@ import './Sort.css'
 const Sort = ({setSortOption}) => {
     const [isOpen, setIsOpen] = useState(false); // set if the dropdown menu is open
 
-    useEffect(() => {
-        handleIsOpen();
-    }, []);
-
-    const handleIsOpen = async () => {
+    const handleIsOpen = () => {
         setIsOpen(!isOpen); // opposite what is currently there
     }
 
     const handleButtonChoice = (type) => {
         // pass this back to the main App.jsx to change the order of the data sent to fetch data
-     
         setSortOption(type);
    
     };

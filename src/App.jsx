@@ -61,7 +61,7 @@ const App = () => {
 
   // only separating the useEffect worked
 
-  // for load more
+  //for load more
   useEffect(() => {
     fetchData();
   }, [pages]);
@@ -87,7 +87,6 @@ const App = () => {
       handleSortQuery();
     }
   }, [sortOption]);
-
 
   const handlePageChange = () => {
     setBooleans(prev => ({...prev, isLoading:true}));

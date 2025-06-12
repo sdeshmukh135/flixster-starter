@@ -13,13 +13,14 @@
 .modal-content {
   background-color:#302214;
    margin: 5% auto; /* 15% from the top and centered */
-   padding: 20px;
+   padding: 10px;
    border: 1px solid #b49855;
    border-radius:5%;
    max-width: 80%;
    color:#b49855;
    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
    max-height:auto;
+   overflow-y: auto;
 }
 
 .modal-img {
@@ -32,17 +33,18 @@
 .details {
     display:flex;
     margin:10px;
+   
     
 }
 
 .extraDetails {
     display:flex;
     flex-direction:column;
-    align-items: center;
+    align-items:center;
     margin-left:auto;
     padding:15px;
 }
 
-.genres {
-    display:flex;
-}
+
+
+
