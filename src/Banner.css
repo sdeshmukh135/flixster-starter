@@ -1,0 +1,8 @@
+.banner {
+    border:1px solid #b49855;
+    background-color:#e7d491;
+    color: #302214;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    padding:7px;
+    margin-top:0
+}

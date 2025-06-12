@@ -1,12 +1,12 @@
 import './Header.css'
 import SearchForm from './SearchForm.jsx'
+import Sort from './Sort.jsx'
 
 
-
-const Header = ({send}) => {
+const Header = (props) => {
 
     const handleSearchChange = (input) => {
-        send(input);
+        props.send(input);
     };
     
 
@@ -15,7 +15,7 @@ const Header = ({send}) => {
             <h1>Flixster</h1>
             <div className ="toggleBar">
                  <SearchForm onSearchQuery={handleSearchChange} />
-                 
+                 <Sort setSortOption={props.setSortOption} />
             </div>
         </div>
         

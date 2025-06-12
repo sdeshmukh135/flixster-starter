@@ -23,9 +23,10 @@
 }
 
 .modal-img {
-    max-height:30%;
+    max-height:29%;
     max-width:29%;
     border:1px solid #b49855;
+    border-radius:5%
 }
 
 .details {

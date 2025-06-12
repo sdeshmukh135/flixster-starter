@@ -11,7 +11,6 @@ const Modal = (props) => {
 
     useEffect(() => {
         findDetails(); // for additional details like runtime and genre
-        console.log(genres);
     },[props.data.id]);
 
     const findDetails = async () => {
@@ -19,13 +18,9 @@ const Modal = (props) => {
         const response = await fetch(`https://api.themoviedb.org/3/movie/${props.data.id}?api_key=${apiKey}`)
         const data = await response.json();
 
-        //console.log(data);
-
         const runtime = data.runtime;
-        console.log(genres);
         setRuntime(runtime);
         setGenres(data.genres.map(object => object.name));
-        console.log(genres)
     }
 
     return (

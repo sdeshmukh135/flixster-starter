@@ -3,4 +3,5 @@
     flex-wrap:wrap;
     justify-content: center;
     background-color:#b49855;
+    flex-grow:1
 }
