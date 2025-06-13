@@ -39,7 +39,6 @@ const MovieCard = (props) => {
             prev = prev.filter((item) => (item) != props.data.id)
             
             const newData = [...prev]
-            console.log(newData);
             props.setWatchedMovies(newData);
             
         }
