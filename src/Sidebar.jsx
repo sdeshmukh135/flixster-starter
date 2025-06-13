@@ -1,5 +1,6 @@
 import { useState} from 'react'
-import './Sort.css' // same stylistic choices
+import './Sort.css' // same stylistic choices for the buttons
+import './Sidebar.css' // for the sidebar itself
 
 const Sidebar = (props) => {
     const [isOpen, setIsOpen] = useState(false); // set if the dropdown menu is open
@@ -50,16 +51,20 @@ const Sidebar = (props) => {
     }
 
     return (
-        <div className="dropdown-container" >
-            <h3 className="dropdown" onClick={handleIsOpen}>
-                Sidebar
-                {isOpen && <div className="dropdown-menu">
-                    <button className="sort" onClick={() => handleWatched("home")}>Home Page</button>
-                    <button className="sort" onClick={() => handleWatched("watched")}>Watched</button>
-                    <button className="sort" onClick={() => handleWatched("favorite")}>Favorites</button>
-                </div>}
-            </h3>
-        </div>
+        <>
+            <button className="sort" onClick={handleIsOpen}>☰</button>
+            {isOpen && <div className="sidebar-container" >
+                <h3 className="sidebar">
+                    Sidebar
+                    <div className="sidebar-menu">
+                        <button className="sort" onClick={() => handleWatched("home")}>Home Page</button>
+                        <button className="sort" onClick={() => handleWatched("watched")}>Watched</button>
+                        <button className="sort" onClick={() => handleWatched("favorite")}>Favorites</button>
+                    </div>
+                </h3>
+            </div>}
+        </>
+        
     );
 }
 
