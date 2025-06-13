@@ -5,10 +5,8 @@ const SearchForm = (props) => {
     const [searchInput, setSearchInput] = useState("");
 
     const handleSearchChange = (event) => {
-        
         event.preventDefault();
         props.onSearchQuery(event.target.elements['search-movie'].value);
-
     };
 
     const handleClear = () => {

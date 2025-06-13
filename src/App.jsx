@@ -61,16 +61,14 @@ const App = () => {
     }
   }, [searchQuery]);
 
-
   const handlePageChange = () => {
-    setBooleans(prev => ({...prev, isLoading:true}));
-    setBooleans(prev => ({...prev, isSearching:true}));
     if (searchQuery !== '') { // search screen currently
+      setBooleans(prev => ({...prev, isSearching:true}));
       setSearchPages(searchPages + 1);
     } else {
+      setBooleans(prev => ({...prev, isLoading:true}));
       setPages(pages + 1);
     }
-    
   }
 
   const handleSearchQuery = async() => { // useEffect is necessary due to API fetching
