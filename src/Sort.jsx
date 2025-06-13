@@ -13,7 +13,6 @@ const Sort = (props) => {
         const currentMovieData = [...props.movieData.results]
         if (type === "title") {
         // sort using the title
-        console.log("sorting by title")
         currentMovieData.sort((a,b) => a['title'].localeCompare(b['title']))
         } else if (type === "date") {
         // sort using date
@@ -27,7 +26,6 @@ const Sort = (props) => {
         ...props.movieData,
         results:currentMovieData
       }
-    console.log(currentMovieData);
     
     props.setMovieData(newData);
   }

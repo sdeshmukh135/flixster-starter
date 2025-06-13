@@ -17,6 +17,7 @@
 }
 
 @media (max-width: 600px) {
+
   .movie-card {
     width: 80%;
   }

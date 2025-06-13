@@ -2,9 +2,7 @@
 // get specific movie data for the movie cards
 const parseMovieData = (data) => {
     const movieData = []
-    //console.log(data);
     const movies = data.results;
-    console.log(movies);
 
     for (const movie of movies) {
         

@@ -33,10 +33,6 @@ const App = () => {
     }
   };
 
-  // useEffect(() => { // for testing purposes
-  //   console.log("movieData changed", movieData);
-  // }, [movieData]);
-
   //for load more
   useEffect(() => {
     fetchData();
@@ -66,7 +62,6 @@ const App = () => {
 
   const handleSearchQuery = async() => { // useEffect is necessary due to API fetching
       // searchQuery now has our search
-      console.log("searching")
       const apiKey = import.meta.env.VITE_APP_API_KEY
       const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchQuery}`)
       const data = await response.json()

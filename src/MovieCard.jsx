@@ -7,10 +7,8 @@ const MovieCard = (props) => {
 
 
     const openModal = () => {
-        console.log(props.data);
         props.setModalData(props.data);
     }
-
 
     const handleWatching = (event) => {
         event.stopPropagation();
@@ -27,8 +25,6 @@ const MovieCard = (props) => {
     const addToWatched = () => {
         
         if (!isWatching) { // put in the special list
-            console.log(props.title);
-            //rops.watchedMovies = [...props.watchedMovies, props.data]; // append data to the end of object (add an array to an array)
             props.setWatchedMovies((prev) => (
                 [...prev, props.data.id]
             ));
@@ -46,8 +42,6 @@ const MovieCard = (props) => {
 
     const addToFavorites = () => { // seperate methods to isolate the actions of the buttons
         if (!isLiked) { // put in the special list
-            console.log(props.title);
-            //rops.watchedMovies = [...props.watchedMovies, props.data]; // append data to the end of object (add an array to an array)
             props.setFavoriteMovies((prev) => (
                 [...prev, props.data.id]
             ));
@@ -57,7 +51,6 @@ const MovieCard = (props) => {
             prev = prev.filter((item) => (item) != props.data.id)
             
             const newData = [...prev]
-            console.log(newData);
             props.setFavoriteMovies(newData);
             
         }
@@ -72,8 +65,8 @@ const MovieCard = (props) => {
             }} />
             <h3>{props.title}</h3>
             <h4>Rating: {props.rating}</h4>
-            <img className="watchLike" src={isWatching ? "src/assets/redeye.png" : "src/assets/watching.webp"} alt={"Watched"} onClick={handleWatching}/>
-            <img className="watchLike" src={isLiked ? "src/assets/redHeart.webp" : "src/assets/whiteHeart.png"} alt={"Watched"} onClick={handleLikes}/>
+            {isWatching ? <img className="watchLike" src="/src/assets/redeye.png" alt={"Watched"} onClick={handleWatching}/>:<img className="watchLike" src="/src/assets/watching.webp" alt={"Watched"} onClick={handleWatching}/> }
+            {isLiked ? <img className="watchLike" src="/src/assets/redHeart.webp" alt={"Watched"} onClick={handleLikes}/> : <img className="watchLike" src="/src/assets/whiteHeart.png" alt={"Watched"} onClick={handleLikes}/>}
             {/* {props.booleans.isModal && <Modal data={props.data} setBooleans={props.setBooleans} booleans={props.booleans}/>} */}
         </div>
         

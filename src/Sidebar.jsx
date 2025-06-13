@@ -29,9 +29,8 @@ const Sidebar = (props) => {
             if (props.favoriteMovies.length === 0) {
                 break;
             }
-            //console.log(watchedMovies);
             if (props.favoriteMovies.includes(movie.id) && !newResults.includes(movie.id)) { // to prevent repeats
-            newResults.push(movie);
+                newResults.push(movie);
             }
         }
     }
