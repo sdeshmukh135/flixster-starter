@@ -4,6 +4,7 @@ import redHeart from "/src/assets/redHeart.webp"
 import whiteHeart from "/src/assets/whiteHeart.png"
 import regularEye from "/src/assets/watching.webp"
 import redEye from "/src/assets/redeye.png"
+import defaultMoviePoster from "/src/assets/movie.png"
 
 const MovieCard = (props) => {
     const [isWatching, setIsWatching] = useState(props.watchedMovies.includes(props.data.id));
@@ -64,7 +65,7 @@ const MovieCard = (props) => {
     return (
         <div className="movie-card" onClick={openModal}>
             <img className="movie-img" src={`https://image.tmdb.org/t/p/w500/${props.poster}`} alt={props.title} onError={event => {
-                event.target.src="src/assets/movie.png"
+                event.target.src={defaultMoviePoster}
                 event.onerror = null
             }} />
             <h3>{props.title}</h3>
