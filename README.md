@@ -1,5 +1,3 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
-
 ## Unit Assignment: Flixster
 
 Submitted by: **Sara Deshmukh*>
@@ -102,8 +100,6 @@ Deployed Application (**required**): https://flixster-starter-new.onrender.com/
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
 <div>
     <a href="https://www.loom.com/share/beac37d7832646b1b5b59406e105fe98">
       <p>Flixster - 13 June 2025 - Watch Video</p>
@@ -135,4 +131,5 @@ Everything for the most part went well, I was able to complete all of MVP featur
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+
 Shout out to Thomas who spent a lot of time helping me debug my sort feature :)
