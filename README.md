@@ -4,9 +4,9 @@
 
 Submitted by: **Sara Deshmukh*>
 
-Estimated time spent: **12** hours spent in total
+Estimated time spent: **17** hours spent in total
 
-Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): https://flixster-starter-new.onrender.com/ 
 
 ### Application Features
 
@@ -117,20 +117,22 @@ Deployed Application (**required**): [Flixster Deployed Site](ADD_LINK_HERE)
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+The topics discussed in the labs definitely helped to prepare me for the assignment, specifically the lab 3 where we began to connect the logic using useEffect and useState, as well as lab 4 which explained the logic behind fetching data using APIs. I did not feel particularly unprepared to complete any of the features, the logic was sound, however I did feel though we touched on it, we could have spent more time explaining passing data to useEffect and setting state as I had many errors regarding re-rendering problems. With the sorting element, while the data would sort, none of the designated movie cards changed on the screen. Additionally, I would have like more practice on using the spread operator and in what situations this would be applicable. Additionally, I felt unprepared for adapting my css for multiple media types and had to research more about the @media feature in order to successfully implement this feature.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time, I would have made it more accessible- while the top layer of the App.jsx is accessible, I felt that there was more scope for this and would have gone back in to change some more of the divs (too generalized) to semantic HTML. I would have perhaps adding additional features such as adding more pages to filter the movies according to genre, or display movies that are from a speciic year, rather than simply sorting in order of release date (which would make it very hard to access movies that are older). 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+Everything for the most part went well, I was able to complete all of MVP features as well the stretch features. I was a bit nervous and I feel I talked more than actually demonstrate the features in the demo- however the features worked as intended which I was happy about. I was stumbling over my words when the questions came, especially regarding specific functionality using useState and useEffect, which I'll will definitely revise for future reference- my fear was that I would say something wrong, but I believe that the more I use React and code more projects, this will get easier. One of my peers website was very clean and they implemented the picture inside their modal in the background such that the words were sitting on top, which I believe looked incredible and also made the look cleaner (i.e. the picture did not move with the changes in media). I do want to try something similiar to that next time for a more professional look.
 
 ### Open-source libraries used
 
 - Add any links to open-source libraries used in your project.
+- https://developer.themoviedb.org/docs/getting-started
 
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Shout out to Thomas who spent a lot of time helping me debug my sort feature :)
