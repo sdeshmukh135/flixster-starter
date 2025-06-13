@@ -1,25 +1,26 @@
 import './Header.css'
+import { useState} from 'react'
 
-
-const SearchForm = ({onSearchQuery}) => {
+const SearchForm = (props) => {
+    const [searchInput, setSearchInput] = useState("");
 
     const handleSearchChange = (event) => {
         
         event.preventDefault();
-        onSearchQuery(event.target.elements['search-movie'].value);
-        //event.target.reset();
+        props.onSearchQuery(event.target.elements['search-movie'].value);
+
     };
 
-    const handleClear = (event) => {
-        console.log("---")
-        onSearchQuery('');
+    const handleClear = () => {
+        setSearchInput("");
+        props.onSearchQuery('');
     }
 
     return (
         <form id="SearchBar" onSubmit={handleSearchChange}>
-            <input type ="text" name ="search-movie" placeholder="Enter Movie Name" required/>
+            <input type ="text" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} name ="search-movie" placeholder="Enter Movie Name" required/>
             <button type="submit" id="submitMovie">Search</button>
-            <button type="button" id="submitMovie" onClick={() => handleClear()}>Now Playing</button>
+            <button type="button" id="submitMovie" onClick={() => handleClear()}>Clear</button>
         </form>
     )
 }
