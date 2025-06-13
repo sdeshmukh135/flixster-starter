@@ -1,5 +1,9 @@
 import './MovieCard.css'
 import { useState, useEffect} from 'react'
+import redHeart from "/src/assets/redHeart.webp"
+import whiteHeart from "/src/assets/whiteHeart.png"
+import regularEye from "/src/assets/watching.webp"
+import redEye from "/src/assets/redeye.png"
 
 const MovieCard = (props) => {
     const [isWatching, setIsWatching] = useState(props.watchedMovies.includes(props.data.id));
@@ -65,8 +69,8 @@ const MovieCard = (props) => {
             }} />
             <h3>{props.title}</h3>
             <h4>Rating: {props.rating}</h4>
-            {isWatching ? <img className="watchLike" src="/src/assets/redeye.png" alt={"Watched"} onClick={handleWatching}/>:<img className="watchLike" src="/src/assets/watching.webp" alt={"Watched"} onClick={handleWatching}/> }
-            {isLiked ? <img className="watchLike" src="/src/assets/redHeart.webp" alt={"Watched"} onClick={handleLikes}/> : <img className="watchLike" src="/src/assets/whiteHeart.png" alt={"Watched"} onClick={handleLikes}/>}
+            {isWatching ? <img className="watchLike" src={redEye} alt={"Watched"} onClick={handleWatching}/>:<img className="watchLike" src={regularEye} alt={"Watched"} onClick={handleWatching}/> }
+            {isLiked ? <img className="watchLike" src={redHeart} alt={"Watched"} onClick={handleLikes}/> : <img className="watchLike" src={whiteHeart} alt={"Watched"} onClick={handleLikes}/>}
             {/* {props.booleans.isModal && <Modal data={props.data} setBooleans={props.setBooleans} booleans={props.booleans}/>} */}
         </div>
         
