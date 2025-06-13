@@ -19,7 +19,7 @@ const Sort = (props) => {
         currentMovieData.sort((a,b) => new Date(a['release_date']) - new Date(b['release_date']))
         } else {
         // sort using rating
-        currentMovieData.sort((a,b) => (a['vote_average']) - (b['vote_average']))
+        currentMovieData.sort((a,b) => (a['vote_average']) - (b['vote_average'])).reverse()
     }
 
     const newData = {
