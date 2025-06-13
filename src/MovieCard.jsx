@@ -52,7 +52,7 @@ const MovieCard = (props) => {
             ));
             
         } else {
-            let prev = [...props.watchedMovies];
+            let prev = [...props.favoriteMovies];
             prev = prev.filter((item) => (item) != props.data.id)
             
             const newData = [...prev]
