@@ -1,5 +1,6 @@
 import './Modal.css'
 import { useState, useEffect} from 'react'
+import defaultMoviePoster from "/src/assets/movie.png"
 
 const Modal = (props) => {
     const [runtime, setRuntime] = useState(0);
@@ -48,7 +49,10 @@ const Modal = (props) => {
             <div className="modal-content" onClick={element => element.stopPropagation()}>
                 <h1>{props.data.title}</h1>
                 <div className="details">
-                    <img className="modal-img" src={`https://image.tmdb.org/t/p/w500/${props.data.poster}`} alt={props.title} />
+                    <img className="modal-img" src={`https://image.tmdb.org/t/p/w500/${props.data.poster}`} alt={props.data.title} onError={event => {
+                                    event.target.src=defaultMoviePoster
+                                    event.onerror = null
+                    }} />
                     <div className="extraDetails">
                         <h2>{props.data.release_date}</h2>
                         <h3>{props.data.overview}</h3>
