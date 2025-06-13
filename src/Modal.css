@@ -35,7 +35,7 @@
     margin:10px;
    
     height:auto;
-    
+
 }
 
 .extraDetails {
@@ -44,6 +44,12 @@
     align-items:center;
     margin-left:auto;
     padding:15px;
+}
+
+@media (max-width: 600px) {
+    .details {
+        flex-direction:column;
+    }
 }
 
 
