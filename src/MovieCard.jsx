@@ -65,7 +65,7 @@ const MovieCard = (props) => {
     return (
         <div className="movie-card" onClick={openModal}>
             <img className="movie-img" src={`https://image.tmdb.org/t/p/w500/${props.poster}`} alt={props.title} onError={event => {
-                event.target.src={defaultMoviePoster}
+                event.target.src=defaultMoviePoster
                 event.onerror = null
             }} />
             <h3>{props.title}</h3>
