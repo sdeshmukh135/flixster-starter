@@ -17,7 +17,7 @@ const Header = (props) => {
             <div className ="toggleBar">
                  <SearchForm onSearchQuery={handleSearchChange} />
                  <Sort setMovieData={props.setMovieData} movieData={props.movieData} />
-                 <Sidebar setMovieData={props.setMovieData} movieData={props.movieData} watchedMovies={props.watchedMovies} fetchData={props.fetchData}/>
+                 <Sidebar setMovieData={props.setMovieData} favoriteMovies={props.favoriteMovies} movieData={props.movieData} watchedMovies={props.watchedMovies} fetchData={props.fetchData}/>
             </div>
         </div>
         

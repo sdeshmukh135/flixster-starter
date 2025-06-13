@@ -2,6 +2,8 @@
   text-align: center;
   background-color:#b49855;
   min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
 .App-header {
@@ -16,7 +18,7 @@
 
 @media (max-width: 600px) {
   .movie-card {
-    width: 100%;
+    width: 80%;
   }
 
   .search-bar {
@@ -27,11 +29,25 @@
   .search-bar form {
     flex-direction: column;
   }
+
+  .movies-list {
+    flex-direction:row;
+  }
+
+  .modal-content {
+    flex-shrink:1
+  }
 }
 
 #loadMore {
+
   background-color:#302214;
-  margin:10px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin:20px;
+  width:150px;
+  margin-left:45%;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   border: 1px solid #e7d491;
   color:#b49855;

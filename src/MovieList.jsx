@@ -14,8 +14,8 @@ const MovieList = (props) => {
             movieData.map(object => {
                 return (
                     <>
-                        <MovieCard data={object} title={object.title} rating={object.rating}
-                        poster={object.poster} modalData={props.modalData} setModalData={props.setModalData} setWatchedMovies={props.setWatchedMovies} watchedMovies={props.watchedMovies}/>
+                        <MovieCard data={object} key={object.id} title={object.title} rating={object.rating}
+                        poster={object.poster} setFavoriteMovies={props.setFavoriteMovies} favoriteMovies={props.favoriteMovies} modalData={props.modalData} setModalData={props.setModalData} setWatchedMovies={props.setWatchedMovies} watchedMovies={props.watchedMovies}/>
                     </>
                     
                     
